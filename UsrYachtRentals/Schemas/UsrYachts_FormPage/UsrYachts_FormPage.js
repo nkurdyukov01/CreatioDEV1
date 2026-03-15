@@ -689,11 +689,10 @@ define("UsrYachts_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 							"width": 153
 						},
 						{
-							"id": "deb292de-8e64-70ac-e223-0e95c29ec04c",
-							"code": "GridDetail_3ye25pvDS_UsrTotalPrice",
-							"caption": "#ResourceString(GridDetail_3ye25pvDS_UsrTotalPrice)#",
-							"dataValueType": 32,
-							"width": 166
+							"id": "fe838010-5b11-cde7-99cd-2bc17bfeab3c",
+							"code": "GridDetail_3ye25pvDS_UsrCustomer",
+							"caption": "#ResourceString(GridDetail_3ye25pvDS_UsrCustomer)#",
+							"dataValueType": 10
 						},
 						{
 							"id": "283a1316-ded5-3ed3-d185-6c555ca18f89",
@@ -701,6 +700,13 @@ define("UsrYachts_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 							"caption": "#ResourceString(GridDetail_3ye25pvDS_UsrManager)#",
 							"dataValueType": 10,
 							"width": 138
+						},
+						{
+							"id": "deb292de-8e64-70ac-e223-0e95c29ec04c",
+							"code": "GridDetail_3ye25pvDS_UsrTotalPrice",
+							"caption": "#ResourceString(GridDetail_3ye25pvDS_UsrTotalPrice)#",
+							"dataValueType": 32,
+							"width": 176
 						},
 						{
 							"id": "d9e17dfa-80db-7359-6ca5-c23932c36666",
@@ -734,6 +740,15 @@ define("UsrYachts_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 					"PDS_UsrLength_duz1rh3": {
 						"modelConfig": {
 							"path": "PDS.UsrLength"
+						},
+						"validators": {
+							"MySuperValidator": {
+								"type": "usr.DGValidator",
+								"params": {
+									"maxValue": 5000,
+									"message": "#ResourceString(LengthMustBeShorter)#"
+								}
+							}
 						}
 					},
 					"PDS_UsrCrewCount_ewh0h04": {
@@ -773,7 +788,14 @@ define("UsrYachts_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 							"path": "PDS.UsrPrice"
 						},
 						"validators": {
-							"MySuperValidator": {
+							"PriceMaxValidator": {
+								"type": "usr.DGValidator",
+								"params": {
+									"maxValue": 100000,
+									"message": "#ResourceString(PriceShouldBeLower)#"
+								}
+							},
+							"PriceMinValidator": {
 								"type": "usr.DGValidator",
 								"params": {
 									"minValue": 50,
@@ -883,14 +905,19 @@ define("UsrYachts_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 										"path": "GridDetail_3ye25pvDS.UsrRentalEnd"
 									}
 								},
-								"GridDetail_3ye25pvDS_UsrTotalPrice": {
+								"GridDetail_3ye25pvDS_UsrCustomer": {
 									"modelConfig": {
-										"path": "GridDetail_3ye25pvDS.UsrTotalPrice"
+										"path": "GridDetail_3ye25pvDS.UsrCustomer"
 									}
 								},
 								"GridDetail_3ye25pvDS_UsrManager": {
 									"modelConfig": {
 										"path": "GridDetail_3ye25pvDS.UsrManager"
+									}
+								},
+								"GridDetail_3ye25pvDS_UsrTotalPrice": {
+									"modelConfig": {
+										"path": "GridDetail_3ye25pvDS.UsrTotalPrice"
 									}
 								},
 								"GridDetail_3ye25pvDS_UsrComment": {
@@ -967,11 +994,14 @@ define("UsrYachts_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 								"UsrRentalEnd": {
 									"path": "UsrRentalEnd"
 								},
-								"UsrTotalPrice": {
-									"path": "UsrTotalPrice"
+								"UsrCustomer": {
+									"path": "UsrCustomer"
 								},
 								"UsrManager": {
 									"path": "UsrManager"
+								},
+								"UsrTotalPrice": {
+									"path": "UsrTotalPrice"
 								},
 								"UsrComment": {
 									"path": "UsrComment"
@@ -985,27 +1015,53 @@ define("UsrYachts_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 		handlers: /**SCHEMA_HANDLERS*/[
 			{
 				request: "usr.PushButtonRequest",
-				/* Implementation of the custom query handler. */
 				handler: async (request, next) => {
 					console.log("Button works...");
 					Terrasoft.showInformation("My button was pressed.");
 					var price = await request.$context.PDS_UsrPrice_rtokijf;
 					console.log("Price = " + price);
 					request.$context.PDS_UsrColumn15_tm0pgne = "comment from JS code!";
-					/* Call the next handler if it exists and return its result. */
 					return next?.handle(request);
-				},
+				}
+			},
+			{
 				request: "crt.HandleViewModelAttributeChangeRequest",
-				/* The custom implementation of the system query handler. */
 				handler: async (request, next) => {
-      				if (request.attributeName === 'PDS_UsrPrice_rtokijf' || 		        // if price changed
-					   request.attributeName === 'PDS_UsrPassengersCount_3trok78' ) { 		// or Passenger count changed
+					if (
+						request.attributeName === "PDS_UsrPrice_rtokijf" ||
+						request.attributeName === "PDS_UsrPassengersCount_3trok78"
+					) {
 						let price = await request.$context.PDS_UsrPrice_rtokijf;
 						let passengers = await request.$context.PDS_UsrPassengersCount_3trok78;
-						let ticket_price = price / passengers;
-						request.$context.PDS_UsrTicketPrice_q44n3tp = ticket_price;
+		
+						if (price != null && passengers != null && passengers > 0) {
+							let ticketPrice = price / passengers;
+							request.$context.PDS_UsrTicketPrice_q44n3tp = ticketPrice;
+						} else {
+							request.$context.PDS_UsrTicketPrice_q44n3tp = null;
+						}
 					}
-					/* Call the next handler if it exists and return its result. */
+		
+					return next?.handle(request);
+				}
+			},
+			{
+				request: "crt.HandleViewModelAttributeChangeRequest",
+				handler: async (request, next) => {
+			
+					if (request.attributeName === "PDS_UsrPrice_rtokijf") {
+			
+						const price = await request.$context.PDS_UsrPrice_rtokijf;
+			
+						const minPrice =
+							await Terrasoft.SysSettings.querySysSettingsItem(
+								"MinPriceToRequireYachtComment"
+							);
+					console.log("System setting MinPriceToRequireYachtComment =", minPrice);
+						request.$context.PDS_Comment_isRequired =
+							price > minPrice;
+					}
+			
 					return next?.handle(request);
 				}
 			}
@@ -1017,23 +1073,34 @@ define("UsrYachts_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHE
 					return function (control) {
 						let value = control.value;
 						let minValue = config.minValue;
-						let valueIsCorrect = value >= minValue;
-						var result;
-						if (valueIsCorrect) {
-							result = null;
-						} else {
-							result = {
-								"usr.DGValidator": { 
-									message: config.message
-								}
-							};
+						let maxValue = config.maxValue;
+		
+						if (value === null || value === undefined || value === "") {
+							return null;
 						}
-						return result;
+		
+						let isMinValid = minValue === undefined || minValue === null || value >= minValue;
+						let isMaxValid = maxValue === undefined || maxValue === null || value <= maxValue;
+		
+						let valueIsCorrect = isMinValid && isMaxValid;
+		
+						if (valueIsCorrect) {
+							return null;
+						}
+		
+						return {
+							"usr.DGValidator": {
+								message: config.message
+							}
+						};
 					};
 				},
 				params: [
 					{
 						name: "minValue"
+					},
+					{
+						name: "maxValue"
 					},
 					{
 						name: "message"

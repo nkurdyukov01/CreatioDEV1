@@ -2,6 +2,7 @@
 <Resources Culture="en-US">
 	<Group Type="String">
 		<Items>
+			<Item Name="AddonConfig.Rules.42c96378-5e07-236f-3e96-cce5227b6f33.Caption" Value="Make elements required: Comment" />
 			<Item Name="AddonConfig.Rules.92bd0c74-bc65-a19a-1149-71d7c610db71.Caption" Value="Set values: Comment" />
 			<Item Name="Caption" Value="Yachts (Business rules)" />
 		</Items>

@@ -48,11 +48,11 @@
                     "UId": "97784fc6-3191-be7c-0f8d-2cfec70b3e10",
                     "BRA2": {
                       "JI0": "Terrasoft.Core.BusinessRules.Models.Expressions.BusinessRuleAttributeExpression",
-                      "UId": "79a5665a-8a5c-4dbd-a477-6e838c98dbd9"
+                      "UId": "3ec23e9e-5eae-499e-b8bd-4622714a789f"
                     },
                     "BRA3": {
                       "JI0": "Terrasoft.Core.BusinessRules.Models.Expressions.BusinessRuleValueExpression",
-                      "UId": "a6b976c8-f81e-4b35-8966-259e7c094e73"
+                      "UId": "27d950b7-6f3b-489f-8861-1e6366bb5655"
                     },
                     "BSVS1": [
                       {
@@ -90,6 +90,62 @@
               }
             ],
             "BR3": "BusinessRule_56cf123"
+          },
+          {
+            "JI0": "Terrasoft.Core.BusinessRules.BusinessRule",
+            "UId": "42c96378-5e07-236f-3e96-cce5227b6f33",
+            "BR1": [
+              {
+                "JI0": "Terrasoft.Core.BusinessRules.Models.BusinessRuleCase",
+                "UId": "1ee53108-659f-b487-181a-c91d0ae30984",
+                "BRC1": {
+                  "JI0": "Terrasoft.Core.BusinessRules.Models.Conditions.BusinessRuleGroupCondition",
+                  "UId": "b8dc38b8-1899-02a1-5c35-1cb293a82882",
+                  "BGC1": 1,
+                  "BGC2": [
+                    {
+                      "JI0": "Terrasoft.Core.BusinessRules.Models.Conditions.BusinessRuleCondition",
+                      "UId": "1a55257d-f129-6186-cbaf-3ed3edc7fdb9",
+                      "BCO1": {
+                        "JI0": "Terrasoft.Core.BusinessRules.Models.Expressions.BusinessRuleAttributeExpression",
+                        "UId": "4a24880c-844e-f564-0b4a-b5159a27d60e",
+                        "BRE1": "Float2",
+                        "BRE2": "AttributeValue",
+                        "BRX1": "UsrPrice"
+                      },
+                      "BCO2": {
+                        "JI0": "Terrasoft.Core.BusinessRules.Models.Expressions.BusinessRuleSysSettingExpression",
+                        "UId": "3c4d9e74-7309-1de7-7631-1d46f1e8af21",
+                        "BRE1": "Float2",
+                        "BRE2": "SysSetting",
+                        "BSS1": "MinPriceToRequireYachtComment"
+                      },
+                      "BCO3": 7
+                    }
+                  ]
+                },
+                "BRC2": [
+                  {
+                    "JI0": "Terrasoft.Core.BusinessRules.Models.Actions.BusinessRuleActionRequiredElement",
+                    "UId": "87d0032a-3030-7df1-331e-77ee8d3827a0",
+                    "BRA4": "UsrColumn15"
+                  }
+                ]
+              }
+            ],
+            "BR2": [
+              {
+                "JI0": "Terrasoft.Core.BusinessRules.Models.Trigger",
+                "UId": "de1567ff-9488-5cb3-fd4f-2bbd5bafc1a1",
+                "BRT2": 2
+              },
+              {
+                "JI0": "Terrasoft.Core.BusinessRules.Models.Trigger",
+                "UId": "7d09ee47-91c6-3d23-8a90-c4d3d9b40a72",
+                "BRT1": "UsrPrice"
+              }
+            ],
+            "BR3": "BusinessRule_9729702"
           }
         ]
       }
