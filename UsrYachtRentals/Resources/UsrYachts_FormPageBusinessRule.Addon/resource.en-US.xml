@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="AddonConfig.Rules.87f21045-2ecb-09f6-5cca-27fd38e23c47.Caption" Value="Hide elements: Price per day, USD" />
+			<Item Name="AddonConfig.Rules.8a9bd3cf-9b39-5417-f9a4-e0fd316e303d.Caption" Value="Business rule" />
+			<Item Name="Caption" Value="Yachts form page (Business rules)" />
+		</Items>
+	</Group>
+</Resources>
