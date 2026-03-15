@@ -4,7 +4,7 @@
 		<Items>
 			<Item Name="Caption" Value="Traffic Light" />
 			<Item Name="Columns.UsrName.Caption" Value="Name" />
-			<Item Name="EventsProcessSchema.Caption" Value="Business process" />
+			<Item Name="Columns.UsrOrder.Caption" Value="Order" />
 		</Items>
 	</Group>
 </Resources>
