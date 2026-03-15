@@ -3,7 +3,17 @@
 	<Group Type="String">
 		<Items>
 			<Item Name="Caption" Value="Yachts form page" />
+			<Item Name="LocalizableStrings.CrewCountCannotBeLess.Value" Value="A vessel should manned by at least 2 people" />
+			<Item Name="LocalizableStrings.ExpansionPanel_3njyol1_title.Value" Value="Yacht rentals" />
+			<Item Name="LocalizableStrings.GridDetailAddBtn_213l8g2_caption.Value" Value="New" />
+			<Item Name="LocalizableStrings.GridDetailExportDataBtn_vea2lr7_caption.Value" Value="Export to Excel" />
+			<Item Name="LocalizableStrings.GridDetailImportDataBtn_ulzg2oz_caption.Value" Value="Data import" />
+			<Item Name="LocalizableStrings.GridDetailRefreshBtn_fbmmhj6_caption.Value" Value="Refresh" />
+			<Item Name="LocalizableStrings.GridDetailSearchFilter_mqc7lai_placeholder.Value" Value="Search" />
+			<Item Name="LocalizableStrings.GridDetailSettingsBtn_bpdo0a5_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.PriceCannotBeLess.Value" Value="The very minimum price is 50 USD" />
 			<Item Name="LocalizableStrings.PushMe_caption.Value" Value="Push me" />
+			<Item Name="LocalizableStrings.YachtCategories_label.Value" Value="Categories" />
 			<Item Name="LocalizableStrings.addRecord_cmcu7qq_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_giwwmzj_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_kccywym_caption.Value" Value="Add new" />

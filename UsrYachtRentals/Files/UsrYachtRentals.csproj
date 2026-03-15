@@ -624,8 +624,11 @@
 	</ItemGroup>
 	<ItemGroup Label="Standalone package external assembly references" />
 	<ItemGroup Label="Entity Files">
+		<Compile Remove="$(RelativePkgFolderPath)/UsrYachtRentals/Schemas/UsrCategoryInYacht/UsrCategoryInYacht.cs" Condition="Exists('$(RelativePkgFolderPath)/UsrYachtRentals/Schemas/UsrCategoryInYacht/UsrCategoryInYacht.cs')" />
 		<Compile Remove="$(RelativePkgFolderPath)/UsrYachtRentals/Schemas/UsrTrafficLight/UsrTrafficLight.cs" Condition="Exists('$(RelativePkgFolderPath)/UsrYachtRentals/Schemas/UsrTrafficLight/UsrTrafficLight.cs')" />
+		<Compile Remove="$(RelativePkgFolderPath)/UsrYachtRentals/Schemas/UsrYachtCategories/UsrYachtCategories.cs" Condition="Exists('$(RelativePkgFolderPath)/UsrYachtRentals/Schemas/UsrYachtCategories/UsrYachtCategories.cs')" />
 		<Compile Remove="$(RelativePkgFolderPath)/UsrYachtRentals/Schemas/UsrYachtDriveTypes/UsrYachtDriveTypes.cs" Condition="Exists('$(RelativePkgFolderPath)/UsrYachtRentals/Schemas/UsrYachtDriveTypes/UsrYachtDriveTypes.cs')" />
+		<Compile Remove="$(RelativePkgFolderPath)/UsrYachtRentals/Schemas/UsrYachtRentals/UsrYachtRentals.cs" Condition="Exists('$(RelativePkgFolderPath)/UsrYachtRentals/Schemas/UsrYachtRentals/UsrYachtRentals.cs')" />
 		<Compile Remove="$(RelativePkgFolderPath)/UsrYachtRentals/Schemas/UsrYachts/UsrYachts.cs" Condition="Exists('$(RelativePkgFolderPath)/UsrYachtRentals/Schemas/UsrYachts/UsrYachts.cs')" />
 		<Compile Remove="$(RelativePkgFolderPath)/UsrYachtRentals/Schemas/UsrYachtStatuses/UsrYachtStatuses.cs" Condition="Exists('$(RelativePkgFolderPath)/UsrYachtRentals/Schemas/UsrYachtStatuses/UsrYachtStatuses.cs')" />
 	</ItemGroup>

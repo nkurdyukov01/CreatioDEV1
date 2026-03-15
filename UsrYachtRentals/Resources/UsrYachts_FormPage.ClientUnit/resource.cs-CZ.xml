@@ -3,6 +3,7 @@
 	<Group Type="String">
 		<Items>
 			<Item Name="Caption" Value="Yachts form page" />
+			<Item Name="LocalizableStrings.PriceCannotBeLess.Value" Value="Minimalní cena je 50 babek" />
 		</Items>
 	</Group>
 </Resources>
