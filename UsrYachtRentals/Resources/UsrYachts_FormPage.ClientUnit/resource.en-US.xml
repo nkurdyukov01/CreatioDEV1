@@ -14,6 +14,7 @@
 			<Item Name="LocalizableStrings.GridDetailSearchFilter_mqc7lai_placeholder.Value" Value="Search" />
 			<Item Name="LocalizableStrings.GridDetailSettingsBtn_bpdo0a5_caption.Value" Value="Actions" />
 			<Item Name="LocalizableStrings.LengthMustBeShorter.Value" Value="Length must be shorter than 5000" />
+			<Item Name="LocalizableStrings.MenuItem_14j8i77_caption.Value" Value="Yacht rentals" />
 			<Item Name="LocalizableStrings.MenuItem_76765un_caption.Value" Value="Avg Ticket Price" />
 			<Item Name="LocalizableStrings.PriceCannotBeLess.Value" Value="The very minimum price is 50 USD" />
 			<Item Name="LocalizableStrings.PriceShouldBeLower.Value" Value="“Price must be lower than 100 000" />
