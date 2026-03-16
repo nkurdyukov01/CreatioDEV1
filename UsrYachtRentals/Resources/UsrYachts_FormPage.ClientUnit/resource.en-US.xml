@@ -3,6 +3,8 @@
 	<Group Type="String">
 		<Items>
 			<Item Name="Caption" Value="Yachts form page" />
+			<Item Name="LocalizableStrings.AvgPriceButton_caption.Value" Value="Avg Yacht Price" />
+			<Item Name="LocalizableStrings.Button_4sdjmsf_caption.Value" Value="Action" />
 			<Item Name="LocalizableStrings.CrewCountCannotBeLess.Value" Value="A vessel should manned by at least 2 people" />
 			<Item Name="LocalizableStrings.ExpansionPanel_3njyol1_title.Value" Value="Yacht rentals" />
 			<Item Name="LocalizableStrings.GridDetailAddBtn_213l8g2_caption.Value" Value="New" />
@@ -12,6 +14,7 @@
 			<Item Name="LocalizableStrings.GridDetailSearchFilter_mqc7lai_placeholder.Value" Value="Search" />
 			<Item Name="LocalizableStrings.GridDetailSettingsBtn_bpdo0a5_caption.Value" Value="Actions" />
 			<Item Name="LocalizableStrings.LengthMustBeShorter.Value" Value="Length must be shorter than 5000" />
+			<Item Name="LocalizableStrings.MenuItem_76765un_caption.Value" Value="Avg Ticket Price" />
 			<Item Name="LocalizableStrings.PriceCannotBeLess.Value" Value="The very minimum price is 50 USD" />
 			<Item Name="LocalizableStrings.PriceShouldBeLower.Value" Value="“Price must be lower than 100 000" />
 			<Item Name="LocalizableStrings.PushMe_caption.Value" Value="Push me" />
